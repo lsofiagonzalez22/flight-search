@@ -14,7 +14,7 @@ import { FlightResultsComponent } from '../flight-results/flight-results.compone
 export class SearchComponent {
   origin = '';
   destination = '';
-  currency: string | undefined = undefined;  
+  currency= 'USD';  
   type = 'oneway';
   flights: any[] = [];
   error : string | null = null;

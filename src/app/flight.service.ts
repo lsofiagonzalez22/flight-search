@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,8 @@ export class FlightService {
     if (currency) params = params.append('currency', currency);
     if (type) params = params.append('type', type);
 
-    return this.http.get(this.apiUrl, { params });
+    return this.http.get<any[]>(this.apiUrl, { params }).pipe(
+      map(flights => flights.map(flight => ({ ...flight, currency })))
+    );
   }
 }

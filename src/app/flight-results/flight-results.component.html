@@ -3,7 +3,7 @@
   <div *ngFor="let journey of flights" class="card mb-3">
     <div class="card-body">
       <h5>{{ journey.origin }} - {{ journey.destination }}</h5>
-      <p>USD ${{ journey.price }}</p>
+      <p>{{ journey.currency }} ${{ journey.price }}</p>
       <div *ngFor="let flight of journey.flights">
         <p>{{ flight.origin }} - {{ flight.destination }} ({{ flight.transport.flightCarrier }} {{ flight.transport.flightNumber }})</p>
       </div>
