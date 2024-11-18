@@ -1,27 +1,54 @@
-# FlightSearch
+Flight Search - Angular SPA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+Este es un proyecto de aplicación de una sola página (SPA) en Angular que permite buscar vuelos a través de una API. El frontend de esta aplicación consume un servicio API que proporciona la búsqueda de vuelos basados en ciertos parámetros como el origen, destino, moneda y tipo de viaje.
 
-## Development server
+Requisitos previos:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes requisitos:
 
-## Code scaffolding
+Node.js (recomendado versión LTS)
+Angular CLI (instalar globalmente)
+Un servidor API que esté corriendo en http://localhost:5297 para manejar las solicitudes de vuelos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Instalación
+Clonar el repositorio
+Si aún no tienes el proyecto en tu máquina, clónalo desde el repositorio de GitHub:
 
-## Build
+git clone https://github.com/lsofiagonzalez22/flight-search.git
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Instalar dependencias:
+Navega al directorio del proyecto y ejecuta el siguiente comando para instalar las dependencias de Node.js:
 
-## Running unit tests
+cd flight-search
+npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Este comando instalará todas las dependencias necesarias, incluidas las de Angular, Bootstrap y otras librerías del proyecto.
 
-## Running end-to-end tests
+Configuración
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Configuración del backend: 
 
-## Further help
+Este proyecto Angular depende de una API que está corriendo en http://localhost:5297/api/Flights/search. Asegúrate de que el backend esté configurado y corriendo antes de utilizar la aplicación. Si no tienes el backend disponible, asegúrate de que esté correctamente implementado y configurado para aceptar solicitudes desde el frontend Angular.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Si el backend utiliza CORS, asegúrate de que el frontend pueda hacer solicitudes desde tu aplicación Angular.
+
+Configuración de la API en el código:
+Si necesitas cambiar la URL de la API, puedes hacerlo modificando los servicios en el proyecto Angular. Por defecto, se espera que las solicitudes se realicen a http://localhost:5297/api/Flights/search, pero puedes cambiar esto en el servicio correspondiente.
+
+// src/app/services/flight.service.ts
+private apiUrl = 'http://localhost:5297/api/Flights/search';
+
+Ejecutar la aplicación
+Para ejecutar la aplicación de Angular, usa el siguiente comando:
+
+ng serve
+Esto iniciará un servidor de desarrollo en http://localhost:4200. Puedes abrir tu navegador y acceder a la aplicación en esa URL.
+
+Uso
+Una vez que la aplicación esté en ejecución, podrás:
+
+Introducir el origen y el destino de tu vuelo.
+Seleccionar el tipo de viaje (por ejemplo, "oneway" o "roundtrip").
+Elegir la moneda en la que deseas ver el precio.
+Ver los resultados de la búsqueda de vuelos que serán mostrados en la interfaz.
+La aplicación se conecta a la API en http://localhost:5297/api/Flights/search para obtener los resultados y los muestra de manera interactiva en la interfaz de usuario.
