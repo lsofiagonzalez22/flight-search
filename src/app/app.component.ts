@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
+import { FlightResultsComponent } from './flight-results/flight-results.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  imports: [SearchComponent, FlightResultsComponent, HttpClientModule]
 })
-export class AppComponent {
-  title = 'flight-search';
-}
+export class AppComponent { }
